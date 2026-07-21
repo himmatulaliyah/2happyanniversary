@@ -1213,7 +1213,7 @@ opacity:0;
 
     font-family:'DM Sans',sans-serif;
 
-    font-size:13px;
+    font-size:1px;
 
     font-weight:300;
 
@@ -1224,5 +1224,51 @@ opacity:0;
     white-space:nowrap;
 
     z-index:99999;
+
+}
+
+/* ================= MOBILE COPYRIGHT ================= */
+
+@media(max-width:768px){
+
+    .copyright{
+
+        bottom:12px;
+
+        font-size:10px;
+
+        letter-spacing:.8px;
+
+        width:90%;
+
+        text-align:center;
+
+        white-space:normal;
+
+    }
+
+}
+
+.copyright{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-family:'DM Sans', sans-serif;
+
+    font-size:13px;
+
+    font-weight:300;
+
+    letter-spacing:1px;
+
+    color:white;
+
+    white-space:nowrap;
 
 }

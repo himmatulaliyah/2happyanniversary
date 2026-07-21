@@ -471,22 +471,43 @@ function bloomAnimation(){
 
 
 
-    const cols=7;
-
-    const rows=5;
-
-
-
-    const cellW=
-    window.innerWidth/cols;
-
-
-    const cellH=
-    window.innerHeight/rows;
+    let cols;
+    let rows;
 
 
 
-    let delay=0;
+    /* ===========================
+       RESPONSIVE JUMLAH BUNGA
+    =========================== */
+
+
+    if(window.innerWidth <= 600){
+
+        cols = 12;
+
+        rows = 9;
+
+
+    }else{
+
+        cols = 7;
+
+        rows = 5;
+
+    }
+
+
+
+    const cellW =
+    window.innerWidth / cols;
+
+
+    const cellH =
+    window.innerHeight / rows;
+
+
+
+    let delay = 0;
 
 
 
@@ -496,12 +517,12 @@ function bloomAnimation(){
         for(let x=0;x<cols;x++){
 
 
-            const img=
+            const img =
             document.createElement("img");
 
 
 
-            img.src=
+            img.src =
             flowers[
                 Math.floor(
                     Math.random()*flowers.length
@@ -514,50 +535,110 @@ function bloomAnimation(){
 
 
 
-            let posX=
-            x*cellW+cellW/2;
+            let posX =
+            x * cellW + cellW/2;
+
+
+            let posY =
+            y * cellH + cellH/2;
 
 
 
-            let posY=
-            y*cellH+cellH/2;
+            /*
+                posisi random
+                supaya natural
+            */
+
+
+            posX +=
+            (Math.random()-.5)*90;
+
+
+            posY +=
+            (Math.random()-.5)*90;
 
 
 
-            posX+=(Math.random()-.5)*70;
-
-            posY+=(Math.random()-.5)*70;
-
-
-
-            img.style.left=
+            img.style.left =
             posX+"px";
 
 
-            img.style.top=
+            img.style.top =
             posY+"px";
 
 
 
-            img.style.width=
-            (cellW*(1.3+Math.random()*.6))
-            +"px";
+            /*
+                UKURAN BUNGA
+            */
 
+
+            if(window.innerWidth <= 600){
+
+
+                img.style.width =
+
+                (
+                    cellW *
+                    (
+                        3 +
+                        Math.random()*1.5
+                    )
+
+                )
+                +"px";
+
+
+
+            }else{
+
+
+                img.style.width =
+
+                (
+                    cellW *
+                    (
+                        1.3 +
+                        Math.random()*.6
+                    )
+
+                )
+                +"px";
+
+
+            }
+
+
+
+            /*
+                ROTASI RANDOM
+            */
 
 
             img.style.setProperty(
+
                 "--rotate",
-                (-20+Math.random()*40)+"deg"
+
+                (-30 + Math.random()*60)
+
+                +"deg"
+
             );
 
 
 
-            img.style.animationDelay=
+            /*
+                DELAY MUNCUL
+            */
+
+
+            img.style.animationDelay =
+
             delay+"s";
 
 
 
-            delay+=0.04;
+            delay += 0.03;
 
 
 
@@ -565,7 +646,6 @@ function bloomAnimation(){
 
 
         }
-
 
     }
 
@@ -578,7 +658,6 @@ function bloomAnimation(){
 
 
     },5000);
-
 
 
 }

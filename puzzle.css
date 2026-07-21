@@ -583,33 +583,33 @@ body{
 /* ========================= */
 
 
+/* ========================= */
+/* MOBILE FLOWER BOOM */
+/* ========================= */
+
 @media(max-width:600px){
 
-
     .flower-overlay{
-
         width:100vw;
-
         height:100vh;
-
     }
-
 
 
     .flower{
 
-        width:280px;
+        /* bunga lebih besar */
+        width:380px;
+
+        max-width:none;
 
     }
-
 
 
     .flower-text h1{
 
-        font-size:32px;
+        font-size:34px;
 
     }
-
 
 
     .flower-text p{
@@ -619,33 +619,6 @@ body{
         letter-spacing:3px;
 
     }
-
-
-}
-
-
-
-/* ========================= */
-/* SMALL PHONE */
-/* ========================= */
-
-
-@media(max-width:360px){
-
-
-    .flower{
-
-        width:240px;
-
-    }
-
-
-    .flower-text h1{
-
-        font-size:28px;
-
-    }
-
 
 }
 
