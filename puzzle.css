@@ -22,7 +22,6 @@ body{
 
     overflow:hidden;
 
-    padding:20px;
 
     font-family:'DM Sans',sans-serif;
 
@@ -583,33 +582,33 @@ body{
 /* ========================= */
 
 
-/* ========================= */
-/* MOBILE FLOWER BOOM */
-/* ========================= */
-
 @media(max-width:600px){
 
+
     .flower-overlay{
+
         width:100vw;
+
         height:100vh;
+
     }
+
 
 
     .flower{
 
-        /* bunga lebih besar */
-        width:380px;
-
-        max-width:none;
+        width:280px;
 
     }
+
 
 
     .flower-text h1{
 
-        font-size:34px;
+        font-size:32px;
 
     }
+
 
 
     .flower-text p{
@@ -619,6 +618,33 @@ body{
         letter-spacing:3px;
 
     }
+
+
+}
+
+
+
+/* ========================= */
+/* SMALL PHONE */
+/* ========================= */
+
+
+@media(max-width:360px){
+
+
+    .flower{
+
+        width:240px;
+
+    }
+
+
+    .flower-text h1{
+
+        font-size:28px;
+
+    }
+
 
 }
 
