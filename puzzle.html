@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Puzzle</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="puzzle.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <!-- Judul -->
+        <div class="heading">
+
+            <h1>Susun Potongan Puzzle</h1>
+
+            <p>Ketuk Potongan Puzzle Sesuai Tempatnya</p>
+
+        </div>
+
+        <!-- Puzzle -->
+        <div class="puzzle-wrapper">
+
+            <div id="puzzle" class="puzzle-board">
+
+                <!-- Tile dibuat otomatis oleh JavaScript -->
+
+            </div>
+
+        </div>
+
+        <!-- Preview -->
+        <button class="preview-btn" id="previewBtn">
+
+            <span>LIHAT GAMBAR UTUH</span>
+
+        </button>
+
+        <!-- Tombol Skip -->
+        <button class="skip-btn" id="skipBtn">
+
+            aku menyerah, buka langsung
+
+        </button>
+
+    </main>
+
+    <!-- Modal Preview -->
+    <div class="modal" id="previewModal">
+
+        <div class="modal-content">
+
+            <button class="close-btn" id="closeModal">
+                ✕
+            </button>
+
+            <img
+                src="assets/1.png"
+                alt="Preview"
+                class="preview-image"
+            >
+
+        </div>
+
+    </div>
+
+    <script src="puzzle.js"></script>
+
+</body>
+</html>

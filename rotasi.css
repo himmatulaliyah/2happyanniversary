@@ -1,0 +1,1300 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-family:'DM Sans',sans-serif;
+
+background:
+radial-gradient(circle at center,
+#6b4d5b 0%,
+#4b313d 45%,
+#2a1a22 100%);
+}
+
+.galaxy{
+
+position:relative;
+width:100vw;
+height:100vh;
+overflow:hidden;
+
+}
+
+.title{
+    position:absolute;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    color:white;
+    z-index:100;
+    width:90%;
+    max-width:600px;
+    pointer-events:none;
+}
+
+.title small{
+    display:block;
+    font-size:11px;
+    letter-spacing:5px;
+    color:rgba(255,255,255,.8);
+    margin-bottom:6px;
+    padding-top:60px;
+}
+
+.title h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    font-weight:600;
+    line-height:1.2;
+    white-space:normal;
+}
+
+.orbit{
+    position:absolute;
+
+    left:50%;
+    top:58%;
+
+    width:650px;
+    height:400px;
+
+    transform:translate(-50%,-50%);
+}
+
+.orbit::before{
+
+content:"";
+
+position:absolute;
+inset:0;
+
+border:2px solid rgba(255,255,255,.15);
+
+border-radius:50%;
+
+}
+
+.heart{
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:270px;
+
+filter:drop-shadow(0 0 60px rgba(255,210,180,.7));
+
+z-index:10;
+
+}
+
+.planet{
+
+    font-family:'DM Sans',sans-serif;
+
+position:absolute;
+
+padding:16px 26px;
+
+border:none;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+color:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+box-shadow:0 8px 30px rgba(0,0,0,.25);
+
+transition:.3s;
+
+}
+
+.planet:hover{
+
+transform:scale(1.08);
+
+background:rgba(255,255,255,.18);
+
+}
+
+.stars{
+
+position:absolute;
+inset:0;
+
+background-image:
+radial-gradient(white 1px,transparent 1px);
+
+background-size:140px 140px;
+
+opacity:.4;
+
+}
+
+/* ================= POPUP YOUTUBE ================= */
+
+.popup{
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(20,15,25,.65);
+    backdrop-filter: blur(12px);
+    z-index: 9999;
+}
+
+.popup.active{
+    display: flex;
+}
+
+.popup-content{
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.back-btn{
+    position: fixed;
+    top: 30px;
+    left: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 22px;
+
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+
+    color: #d8b58c;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 6px;
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+    z-index: 10000;
+}
+
+.back-btn:hover{
+    background: rgba(255,255,255,.18);
+    transform: translateY(-2px);
+}
+
+.popup-title{
+    color: #d8b58c;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* ================= BOUQUET ================= */
+
+.bouquet-card{
+
+    position: relative;
+
+    width: 500px;
+    max-width: 90%;
+
+    background: #faf6f2;
+
+    border-radius: 28px;
+
+    margin-top: 80px;
+
+    overflow: visible;
+
+    box-shadow: 0 18px 40px rgba(0,0,0,.25);
+
+}
+
+.bouquet-photo{
+
+    position: absolute;
+
+    left: 50%;
+    top: -75px;
+
+    transform: translateX(-50%);
+
+    width: 170px;
+    height: 170px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+
+}
+
+.bouquet-photo img{
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
+
+    transition: .3s;
+
+}
+
+.bouquet-photo img:hover{
+
+    transform: scale(1.03);
+
+}
+
+/* Placeholder kalau gambar belum ada */
+
+.bouquet-photo::before{
+
+    content:"Tempat Foto Bouquet";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border:2px dashed #d7b8b0;
+
+    border-radius:18px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff8f6;
+
+    color:#b48b87;
+
+    font-size:13px;
+
+    z-index:-1;
+
+}
+
+.bouquet-body{
+
+    padding:110px 28px 28px;
+
+    text-align:center;
+
+}
+
+.tag{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    letter-spacing:5px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    color:#a34b54;
+
+}
+
+.bouquet-body h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:34px;
+
+    font-weight:500;
+
+    color:#9e3f4d;
+
+    margin-bottom:10px;
+
+    line-height:1.1;
+
+}
+
+.bouquet-body p{
+
+    max-width:380px;
+
+    margin:0 auto 18px;
+
+    color:#75675e;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+.flower-list{
+
+    width:300px;
+
+    max-width:100%;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.flower-item{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:9px 14px;
+
+    border-radius:999px;
+
+    background:#fff;
+
+    border:1px solid #ead8d2;
+
+    font-size:13px;
+
+    transition:.25s;
+
+}
+
+.flower-item:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 16px rgba(0,0,0,.08);
+
+}
+
+.flower-item strong{
+
+    color:#a33f4a;
+
+    font-weight:600;
+
+}
+
+.flower-item span{
+
+    color:#9f9188;
+
+}
+
+.bouquet-body small{
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#b7a79e;
+
+    font-size:12px;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .bouquet-card{
+
+        width:92%;
+
+        margin-top:70px;
+
+    }
+
+    .bouquet-photo{
+
+        width:140px;
+        height:140px;
+
+        top:-60px;
+
+    }
+
+    .bouquet-photo::before{
+
+        width:125px;
+        height:125px;
+
+    }
+
+    .bouquet-body{
+
+        padding:90px 22px 24px;
+
+    }
+
+    .bouquet-body h2{
+
+        font-size:28px;
+
+    }
+
+    .bouquet-body p{
+
+        font-size:14px;
+
+    }
+
+    .flower-list{
+
+        width:100%;
+
+    }
+
+}
+
+/* ================= MESSAGE ================= */
+
+.message-box{
+
+    width:700px;
+    max-width:90%;
+
+    height:450px;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+    overflow-y:auto;
+
+}
+
+.message-box h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#d8b58c;
+
+    font-size:40px;
+
+    margin-bottom:25px;
+
+}
+
+#typingText{
+
+    white-space:pre-wrap;
+
+    color:#e4c995;
+
+    font-size:17px;
+
+    line-height:2;
+
+    font-family:'DM Sans',sans-serif;
+
+}
+
+.cursor{
+
+    display:inline-block;
+
+    width:2px;
+
+    background:#d8b58c;
+
+    animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+opacity:0;
+}
+
+}
+
+.music-card{
+
+    font-family:'Cormorant Garamond',serif;
+
+    width:460px;
+
+    background:#f9f3ee;
+
+    border-radius:32px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+}
+
+.cover{
+
+    width:170px;
+
+    border-radius:22px;
+
+    margin-bottom:20px;
+
+}
+
+.play-btn{
+
+    margin-top:25px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#a0404d;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.progress{
+
+    margin-top:25px;
+
+}
+
+/* ================= RADIO ================= */
+
+.radio-card{
+
+    width:380px;
+    max-width:90%;
+
+    text-align:center;
+
+}
+
+.radio-label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    letter-spacing:6px;
+
+    color:rgba(255,255,255,.65);
+
+    font-size:11px;
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+.radio-title{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:28px;
+
+    font-weight:500;
+
+    color:#fff;
+
+    margin-bottom:8px;
+
+    line-height:1.2;
+
+}
+
+.radio-subtitle{
+
+    width:100%;
+
+    margin:0 auto 18px;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    color:rgba(255,255,255,.7);
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+/* ================= PANEL ================= */
+
+.radio-panel{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:22px;
+
+    padding:20px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+}
+
+/* ================= SCALE ================= */
+
+.radio-scale{
+
+    position:relative;
+
+    width:100%;
+
+    height:22px;
+
+    margin-bottom:20px;
+
+}
+
+.radio-line{
+
+    position:absolute;
+
+    top:10px;
+
+    left:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:rgba(255,255,255,.18);
+
+}
+
+.radio-line::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    repeating-linear-gradient(
+
+        to right,
+
+        transparent 0,
+
+        transparent 10px,
+
+        rgba(255,255,255,.35) 10px,
+
+        rgba(255,255,255,.35) 12px
+
+    );
+
+}
+
+.radio-indicator{
+
+    position:absolute;
+
+    left:50%;
+
+    top:-3px;
+
+    width:3px;
+
+    height:24px;
+
+    background:#d8b58c;
+
+    border-radius:999px;
+
+    transform:translateX(-50%);
+
+}
+
+.radio-indicator::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:-7px;
+
+    transform:translateX(-50%);
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#d8b58c;
+
+}
+
+/* ================= TEXT ================= */
+
+.radio-number{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:46px;
+
+    font-weight:600;
+
+    color:#d8b58c;
+
+    margin-bottom:6px;
+
+}
+
+.radio-status{
+
+    font-family:'Cormorant Garamond',serif;
+
+    letter-spacing:2px;
+
+    font-size:11px;
+
+    color:rgba(255,255,255,.65);
+
+    margin-bottom:18px;
+
+}
+
+.radio-result{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#d8b58c;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+    min-height:45px;
+
+    margin-top:16px;
+
+}
+
+/* ================= WAVE ================= */
+
+.radio-wave{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:4px;
+
+    height:30px;
+
+    margin-bottom:18px;
+
+}
+
+.radio-wave span{
+
+    width:3px;
+
+    border-radius:999px;
+
+    background:#d8b58c;
+
+    animation:wave 1s infinite ease-in-out;
+
+}
+
+.radio-wave span:nth-child(1){height:8px;animation-delay:.1s;}
+.radio-wave span:nth-child(2){height:15px;animation-delay:.2s;}
+.radio-wave span:nth-child(3){height:11px;animation-delay:.3s;}
+.radio-wave span:nth-child(4){height:22px;animation-delay:.4s;}
+.radio-wave span:nth-child(5){height:15px;animation-delay:.5s;}
+.radio-wave span:nth-child(6){height:20px;animation-delay:.6s;}
+.radio-wave span:nth-child(7){height:11px;animation-delay:.7s;}
+.radio-wave span:nth-child(8){height:15px;animation-delay:.8s;}
+.radio-wave span:nth-child(9){height:8px;animation-delay:.9s;}
+
+@keyframes wave{
+
+    0%,100%{
+
+        transform:scaleY(.7);
+        opacity:.5;
+
+    }
+
+    50%{
+
+        transform:scaleY(1.3);
+        opacity:1;
+
+    }
+
+}
+
+/* ================= BUTTON ================= */
+
+.radio-btn{
+
+    margin-top:8px;
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    color:#d8b58c;
+
+    font-size:15px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.radio-btn:hover{
+
+    background:rgba(255,255,255,.16);
+
+    transform:translateY(-2px);
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .radio-card{
+
+        width:95%;
+
+    }
+
+    .radio-title{
+
+        font-size:24px;
+
+    }
+
+    .radio-subtitle{
+
+        font-size:14px;
+
+    }
+
+    .radio-number{
+
+        font-size:38px;
+
+    }
+
+    .radio-result{
+
+        font-size:15px;
+
+    }
+
+}
+
+/* ================= CHAT ================= */
+
+.chat-card{
+
+    width:520px;
+    max-width:88%;
+
+    margin:auto;
+    text-align:center;
+
+    color:#fff;
+
+}
+
+.chat-label{
+
+    display:block;
+
+    margin-bottom:18px;
+
+    letter-spacing:4px;
+
+    font-size:11px;
+
+    color:rgba(255,255,255,.55);
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+/* Bubble kecil */
+
+.chat-user{
+
+    width:145px;
+
+    padding:14px 18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    text-align:left;
+
+    margin-bottom:16px;
+
+}
+
+.chat-user h3{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+    color:#fff;
+
+    font-family:monospace;
+
+    font-weight:400;
+
+}
+
+.chat-user span{
+
+    font-size:11px;
+
+    color:rgba(255,255,255,.55);
+
+}
+
+/* Bubble utama */
+
+.chat-message{
+
+    position:relative;
+
+    background:rgba(74,49,61,.9);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    padding:32px 28px;
+
+    min-height:150px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.28);
+
+}
+
+.chat-time{
+
+    position:absolute;
+
+    right:18px;
+
+    bottom:14px;
+
+    color:rgba(255,255,255,.6);
+
+    font-size:12px;
+
+}
+
+/* Noise */
+
+.noise-text{
+
+    font-family:monospace;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+    color:#f7ece6;
+
+}
+
+/* Pesan Asli */
+
+.real-text{
+
+    position:absolute;
+
+    opacity:0;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:34px;
+
+    color:#ffb3cb;
+
+    text-align:center;
+
+    transition:.6s;
+
+    text-shadow:0 0 12px rgba(255,180,205,.4);
+
+}
+
+/* Info */
+
+.chat-info{
+
+    width:92%;
+
+    margin:20px auto;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    color:rgba(255,255,255,.68);
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+/* ================= HOLD ================= */
+
+.hold-area{
+
+    margin-top:22px;
+    text-align:center;
+
+}
+
+.hold-btn{
+
+    width:250px;
+    height:54px;
+
+    border:none;
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(216,181,140,.25);
+
+    color:#fff;
+
+    font-size:18px;
+    font-family:'Cormorant Garamond',serif;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+.hold-btn:hover{
+
+    background:#d8b58c;
+    color:#2f2020;
+
+    transform:translateY(-2px);
+
+}
+
+.hold-btn:active{
+
+    background:#d8b58c;
+    color:#2f2020;
+
+    transform:scale(.98);
+
+}
+
+.hold-label{
+
+    pointer-events:none;
+
+}
+
+.hold-area small{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:rgba(255,255,255,.55);
+
+    font-size:12px;
+
+}
+
+/* Finish */
+
+.chat-finish{
+
+    display:none;
+
+    margin-top:24px;
+    
+
+}
+
+.chat-finish h2{
+
+    font-size:26px;
+
+    letter-spacing:6px;
+
+    color:#d8b58c;
+
+    margin-bottom:12px;
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+.chat-finish p{
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    color:#fff;
+
+    margin-bottom:22px;
+
+    font-family:'Cormorant Garamond',serif;
+
+}
+
+.next-btn{
+
+    padding:12px 40px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    color:#d8b58c;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.next-btn:hover{
+
+    background:rgba(255,255,255,.16);
+
+    transform:translateY(-2px);
+
+}
+
+/* Efek reveal */
+
+.chat-message.show .noise-text{
+
+    opacity:0;
+    transform:scale(.95);
+
+}
+
+.chat-message.show .real-text{
+
+    opacity:1;
+    font-family: monospace;
+    font-size: 20px;
+
+}

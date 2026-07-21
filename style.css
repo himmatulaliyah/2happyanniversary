@@ -1,0 +1,226 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    font-family:'DM Sans',sans-serif;
+    font-weight:400;
+    font-size:15px;
+    line-height:1.5;
+    letter-spacing:.2px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #ffc3dc 0%,
+        #ffd5e8 35%,
+        #ffe7f2 65%,
+        #fff4f7 85%,
+        #fffaf6 100%
+    );
+
+}
+
+
+.loading{
+
+    width:100%;
+    max-width:400px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+
+/* FOTO */
+
+.photo{
+
+    width:clamp(120px, 18vw, 180px);
+
+    height:auto;
+
+    animation:spin 5s linear infinite;
+
+    object-fit:contain;
+
+}
+
+
+/* PROGRESS */
+
+.progress{
+
+    margin-top:clamp(20px, 4vw, 35px);
+
+    width:clamp(170px, 35vw, 220px);
+
+    height:6px;
+
+    background:#ffe6ef;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+
+.bar{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:#ffd8e6;
+
+    animation:loading 3s linear forwards;
+
+}
+
+
+/* TEXT */
+
+p{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(15px, 3vw, 18px);
+
+    font-weight:500;
+
+    margin-top:15px;
+
+    color:#4f3d43;
+
+    text-align:center;
+
+}
+
+
+/* ANIMATION */
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+@keyframes loading{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+
+
+/* TABLET */
+
+@media (max-width:900px){
+
+    .photo{
+        width:160px;
+    }
+
+
+    .progress{
+        width:210px;
+    }
+
+}
+
+
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+    .loading{
+        padding:15px;
+    }
+
+
+    .photo{
+        width:135px;
+    }
+
+
+    .progress{
+
+        width:180px;
+
+        height:7px;
+
+    }
+
+
+    p{
+
+        font-size:16px;
+
+    }
+
+}
+
+
+
+/* HP KECIL */
+
+@media (max-width:360px){
+
+    .photo{
+        width:115px;
+    }
+
+
+    .progress{
+
+        width:160px;
+
+        height:6px;
+
+    }
+
+
+    p{
+
+        font-size:15px;
+
+    }
+
+}

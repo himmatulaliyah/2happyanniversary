@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy</title>
+
+    <link rel="stylesheet" href="rotasi.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="galaxy">
+
+    <div class="stars"></div>
+
+    <div class="title">
+        <small>KHUSUS UNTUK CINTAKU</small>
+        <h1>Dunia Kecil Kita.</h1>
+    </div>
+
+    <div class="orbit">
+
+        <img src="assets/6.png" class="heart" alt="Heart">
+
+        <button class="planet bouquet" id="bouquetBtn">
+            Bouquet
+        </button>
+
+        <button class="planet message" id="messageBtn">
+            Message
+        </button>
+
+        <button class="planet music" id="musicBtn">
+            Music
+        </button>
+
+        <button class="planet chat" id="chatBtn">
+            Chat
+        </button>
+
+        <button class="planet radio" id="radioBtn">
+            Radio
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= POPUP BOUQUET ================= -->
+
+<div class="popup" id="bouquetPopup">
+
+    <button class="back-btn" id="closeBouquet">
+        ← KEMBALI
+    </button>
+
+    <div class="bouquet-card">
+
+        <!-- FOTO BUKET -->
+        <div class="bouquet-photo">
+            <!-- nanti isi gambar -->
+            <img src="assets/7.png" alt="Bouquet">
+        </div>
+
+        <div class="bouquet-body">
+
+            <span class="tag">ROMANTIS</span>
+
+            <h2>Eternal Love Untuk Alfi</h2>
+
+            <p>
+                Buket ini dipilih khusus untukmu.
+                Setiap bunga memiliki makna yang berbeda,
+                tetapi semuanya memiliki keindahan yang sama.
+            </p>
+
+            <div class="flower-list">
+
+                <div class="flower-item">
+                    <strong>Pink Rose</strong>
+                    <span>Gentle Affection</span>
+                </div>
+
+                <div class="flower-item">
+                    <strong>Pink Peony</strong>
+                    <span>Lasting Joy</span>
+                </div>
+
+                <div class="flower-item">
+                    <strong>Baby's Breath</strong>
+                    <span>Pure Love</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= MESSAGE POPUP ================= -->
+
+<div class="popup" id="messagePopup">
+
+    <button class="back-btn" id="closeMessage">
+        ← KEMBALI
+    </button>
+
+    <div class="message-box">
+
+        <h2>My Little Letter</h2>
+
+        <div id="typingText"></div>
+
+    </div>
+
+</div>
+
+<div class="popup" id="musicPopup">
+
+    <button class="back-btn" id="closeMusic">
+        ← KEMBALI
+    </button>
+
+    <div class="music-card">
+
+        <small>THIS SONG IS FOR YOU</small>
+
+   <h2>Bukti ~ Virgoun</h2>
+
+<p> Aku merasa lagu ini cocok buat kamu.</p>
+
+
+        <button id="playBtn" class="play-btn">
+
+            ▶ Play Music
+
+        </button>
+
+       <audio id="song" preload="auto">
+    <source src="assets/song.mp3" type="audio/mpeg">
+</audio>
+
+    </div>
+
+</div>
+
+
+<!-- ================= RADIO POPUP ================= -->
+
+<div class="popup" id="radioPopup">
+
+    <button class="back-btn" id="closeRadio">
+        ← KEMBALI
+    </button>
+
+    <div class="radio-card">
+
+        <small class="radio-label">
+            RADIO KECIL KITA
+        </small>
+
+        <h2 class="radio-title">
+            Aku kumpulin kita di sini.
+        </h2>
+
+        <p class="radio-subtitle">
+            Ada beberapa hal kecil yang terlalu sayang buat dilupain.
+        </p>
+
+        <!-- PANEL RADIO -->
+
+        <div class="radio-panel">
+
+            <!-- Skala Frekuensi -->
+
+            <div class="radio-scale">
+
+                <div class="radio-line"></div>
+
+                <div class="radio-indicator" id="radioIndicator"></div>
+
+            </div>
+
+            <!-- Angka -->
+
+            <h1 class="radio-number" id="radioNumber">
+                --.--
+            </h1>
+
+            <!-- Judul -->
+
+            <p class="radio-status" id="radioStatus">
+                FREKUENSINYA MASIH RAHASIA
+            </p>
+
+            <!-- Wave -->
+
+            <div class="radio-wave">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <!-- Pesan -->
+
+            <p class="radio-result" id="radioResult">
+
+            </p>
+
+            <!-- Tombol -->
+
+            <button class="radio-btn" id="scanRadio">
+
+                Cari Frekuensi Kita
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= CHAT POPUP ================= -->
+
+<div class="popup" id="chatPopup">
+
+    <button class="back-btn" id="closeChat">
+        ← KEMBALI
+    </button>
+
+    <div class="chat-card">
+
+        <small class="chat-label">
+            CHAT LARUT MALAM • BELUM SEMPAT TERKIRIM
+        </small>
+
+        <!-- Bubble kecil -->
+
+        <div class="chat-user">
+
+            <h3>Buat Kamu</h3>
+
+            <span>23:40</span>
+
+        </div>
+        <!-- Bubble pesan -->
+
+        <div class="chat-message">
+
+            <div id="noiseText" class="noise-text">
+
+takugmasihftcodscpjlv<br>
+sphwllmemilihkkfabqbu<br>
+cazvittqkamuzharijkey<br>
+muvnvmaonywqgynwqinif
+
+            </div>
+
+            <div id="realText" class="real-text">
+
+aku masih memilih kamu hari ini
+
+            </div>
+
+            <span class="chat-time">
+                23:41 ✓✓
+            </span>
+
+        </div>
+
+        <!-- Keterangan -->
+
+        <div id="chatInfo" class="chat-info">
+
+            <p>
+                Ada pesan disini, tapi jangan langsung dibaca ya,
+                tahan tombol di bawah dulu sampai pesannya kebuka.
+            </p>
+
+        </div>
+
+        <!-- Progress -->
+
+        <div class="hold-area">
+
+<button id="holdBtn" class="hold-btn">
+    <span class="hold-label">
+        Tahan Disini
+    </span>
+</button>
+
+            <small>
+                Tahan terus. Jangan dilepas ya.
+            </small>
+
+        </div>
+
+        <!-- Setelah selesai -->
+
+        <div id="chatFinish" class="chat-finish">
+
+            <h2>
+                UNTUK ALFI
+            </h2>
+
+            <p>
+
+                Sudah Lihat?
+
+                <br><br>
+
+                Pesannya sebenarnya sudah ada dari awal.
+
+                <br>
+
+                Cuma ada di balik sedikit noise.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="rotasi.js"></script>
+
+</body>
+</html>
