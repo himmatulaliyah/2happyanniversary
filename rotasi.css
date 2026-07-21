@@ -223,216 +223,118 @@ opacity:.4;
 
 .bouquet-card{
 
-    position: relative;
+    position:relative;
 
-    width: 500px;
-    max-width: 90%;
+    width:500px;
+    max-width:90%;
 
-    background: #faf6f2;
+    background:#faf6f2;
 
-    border-radius: 28px;
+    border-radius:28px;
 
-    margin-top: 80px;
+    margin-top:130px;
 
-    overflow: visible;
+    overflow:visible;
 
-    box-shadow: 0 18px 40px rgba(0,0,0,.25);
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
 
 }
+
 
 .bouquet-photo{
 
-    position: absolute;
-
-    left: 50%;
-    top: -75px;
-
-    transform: translateX(-50%);
-
-    width: 170px;
-    height: 170px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 10;
-
-}
-
-.bouquet-photo img{
-
-    width: 100%;
-    height: auto;
-
-    object-fit: contain;
-
-    filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
-
-    transition: .3s;
-
-}
-
-.bouquet-photo img:hover{
-
-    transform: scale(1.03);
-
-}
-
-/* Placeholder kalau gambar belum ada */
-
-.bouquet-photo::before{
-
-    content:"Tempat Foto Bouquet";
-
     position:absolute;
 
-    width:150px;
-    height:150px;
+    left:50%;
+    top:-200px;
 
-    border:2px dashed #d7b8b0;
+    transform:translateX(-50%);
 
-    border-radius:18px;
+    width:350px;
+    height:350px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    background:#fff8f6;
-
-    color:#b48b87;
-
-    font-size:13px;
-
-    z-index:-1;
+    z-index:10;
 
 }
 
+
+.bouquet-photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    filter:drop-shadow(0 15px 25px rgba(0,0,0,.18));
+
+    transition:.3s;
+
+}
+
+
+.bouquet-photo img:hover{
+
+    transform:scale(1.05);
+
+}
+
+
 .bouquet-body{
 
-    padding:110px 28px 28px;
+    padding:160px 35px 40px;
 
     text-align:center;
 
 }
 
+
 .tag{
 
     display:block;
 
-    margin-bottom:8px;
+    margin-bottom:10px;
 
     letter-spacing:5px;
 
     font-size:12px;
 
-    font-weight:600;
+    font-weight:500;
 
     color:#a34b54;
 
 }
 
+
 .bouquet-body h2{
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:34px;
+    font-size:38px;
 
     font-weight:500;
 
     color:#9e3f4d;
 
-    margin-bottom:10px;
-
-    line-height:1.1;
+    margin-bottom:15px;
 
 }
 
+
 .bouquet-body p{
 
-    max-width:380px;
+    max-width:390px;
 
-    margin:0 auto 18px;
+    margin:auto;
 
     color:#75675e;
 
     font-size:15px;
 
-    line-height:1.7;
-
-}
-
-.flower-list{
-
-    width:300px;
-
-    max-width:100%;
-
-    margin:auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
-
-}
-
-.flower-item{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:6px;
-
-    padding:9px 14px;
-
-    border-radius:999px;
-
-    background:#fff;
-
-    border:1px solid #ead8d2;
-
-    font-size:13px;
-
-    transition:.25s;
-
-}
-
-.flower-item:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 8px 16px rgba(0,0,0,.08);
-
-}
-
-.flower-item strong{
-
-    color:#a33f4a;
-
-    font-weight:600;
-
-}
-
-.flower-item span{
-
-    color:#9f9188;
-
-}
-
-.bouquet-body small{
-
-    display:block;
-
-    margin-top:15px;
-
-    color:#b7a79e;
-
-    font-size:12px;
+    line-height:1.8;
 
 }
 
@@ -1296,5 +1198,31 @@ opacity:0;
     opacity:1;
     font-family: monospace;
     font-size: 20px;
+
+}
+
+.copyright{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:13px;
+
+    font-weight:300;
+
+    letter-spacing:1px;
+
+    color:#fdfdfd;
+
+    white-space:nowrap;
+
+    z-index:99999;
 
 }
