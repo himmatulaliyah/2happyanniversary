@@ -114,7 +114,7 @@
 
    <h2>Bukti ~ Virgoun</h2>
 
-<p> Aku merasa lagu ini cocok buat kamu.</p>
+<p> Lagu Ini Cocok Buat Kamu.</p>
 
 
         <button id="playBtn" class="play-btn">
@@ -174,7 +174,7 @@
                 --.--
             </h1>
 
-            <!-- Judul -->
+            <!-- Status -->
 
             <p class="radio-status" id="radioStatus">
                 FREKUENSINYA MASIH RAHASIA
@@ -196,11 +196,67 @@
 
             </div>
 
-            <!-- Pesan -->
+            <!-- Hasil -->
 
-            <p class="radio-result" id="radioResult">
+            <p class="radio-result" id="radioResult"></p>
 
-            </p>
+            <!-- Kalender -->
+
+            <div class="love-calendar" id="loveCalendar">
+
+                <div class="calendar-grid">
+
+                    <span>Min</span>
+                    <span>Sen</span>
+                    <span>Sel</span>
+                    <span>Rab</span>
+                    <span>Kam</span>
+                    <span>Jum</span>
+                    <span>Sab</span>
+
+                    <span></span>
+                    <span></span>
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                    <span>11</span>
+
+                    <span>12</span>
+                    <span>13</span>
+                    <span>14</span>
+                    <span>15</span>
+                    <span>16</span>
+                    <span>17</span>
+                    <span>18</span>
+
+                    <span>19</span>
+
+                    <span class="love-day">20</span>
+
+                    <span>21</span>
+                    <span>22</span>
+                    <span>23</span>
+                    <span>24</span>
+                    <span>25</span>
+
+                    <span>26</span>
+                    <span>27</span>
+                    <span>28</span>
+                    <span>29</span>
+                    <span>30</span>
+                    <span>31</span>
+
+                </div>
+
+            </div>
 
             <!-- Tombol -->
 
@@ -220,102 +276,238 @@
 
 <div class="popup" id="chatPopup">
 
+
     <button class="back-btn" id="closeChat">
         ← KEMBALI
     </button>
 
+
     <div class="chat-card">
 
+
         <small class="chat-label">
-            CHAT LARUT MALAM • BELUM SEMPAT TERKIRIM
+            CHAT YANG BELUM SEMPAT TERKIRIM
         </small>
 
-        <!-- Bubble kecil -->
 
-        <div class="chat-user">
 
-            <h3>Buat Kamu</h3>
+        <div class="chat-body">
 
-            <span>23:40</span>
 
-        </div>
-        <!-- Bubble pesan -->
+            <!-- CHAT 1 -->
 
-        <div class="chat-message">
+            <div class="chat-message" id="chat1">
 
-            <div id="noiseText" class="noise-text">
+                <div class="chat-bubble">
 
-takugmasihftcodscpjlv<br>
-sphwllmemilihkkfabqbu<br>
-cazvittqkamuzharijkey<br>
-muvnvmaonywqgynwqinif
+                    <div class="chat-name">
+                        Dari Aku
+                    </div>
+
+                    <div class="chat-text">
+                        Naik kapal menuju pulau,<br>
+                        Lihat camar terbang melaju.
+                    </div>
+
+                    <span class="chat-time">
+                        16.54 ✓✓
+                    </span>
+
+                </div>
 
             </div>
 
-            <div id="realText" class="real-text">
 
-aku masih memilih kamu hari ini
 
-            </div>
+            <!-- BUTTON 1 -->
 
-            <span class="chat-time">
-                23:41 ✓✓
-            </span>
+            <div class="hold-area" id="btnArea1">
 
-        </div>
-
-        <!-- Keterangan -->
-
-        <div id="chatInfo" class="chat-info">
-
-            <p>
-                Ada pesan disini, tapi jangan langsung dibaca ya,
-                tahan tombol di bawah dulu sampai pesannya kebuka.
-            </p>
-
-        </div>
-
-        <!-- Progress -->
-
-        <div class="hold-area">
-
-<button id="holdBtn" class="hold-btn">
-    <span class="hold-label">
-        Tahan Disini
-    </span>
+                <button class="hold-btn chat-btn">
+    Cakep
 </button>
 
-            <small>
-                Tahan terus. Jangan dilepas ya.
-            </small>
+            </div>
+
+
+
+
+            <!-- REPLY 1 -->
+
+            <div class="reply-message" id="reply1">
+
+                <div class="reply-bubble">
+                    Cakep 
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            <!-- CHAT 2 -->
+
+            <div class="chat-message" id="chat2" style="display:none;">
+
+                <div class="chat-bubble">
+
+                    <div class="chat-name">
+                        Dari Aku
+                    </div>
+
+
+                    <div class="chat-text">
+                        Beda agama, beda pulau,<br>
+                        Menyala bosku.
+                    </div>
+
+
+                    <span class="chat-time">
+                        16.55 ✓✓
+                    </span>
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- BUTTON 2 -->
+
+            <div class="hold-area" id="btnArea2" style="display:none;">
+
+                <button class="hold-btn chat-btn">
+    Cakep
+</button>
+
+            </div>
+
+
+
+
+            <!-- REPLY 2 -->
+
+            <div class="reply-message" id="reply2">
+
+                <div class="reply-bubble">
+                    Cakep 
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- CHAT 3 -->
+
+            <div class="chat-message" id="chat3" style="display:none;">
+
+
+                <div class="chat-bubble">
+
+
+                    <div class="chat-name">
+                        Dari Aku
+                    </div>
+
+
+                    <div class="chat-text">
+
+                        Pergi ke pasar beli pepaya,<br>
+                        Sekalian beli buah naga.
+
+                    </div>
+
+
+
+                    <span class="chat-time">
+                        16.56 ✓✓
+                    </span>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- BUTTON 3 -->
+
+            <div class="hold-area" id="btnArea3" style="display:none;">
+
+
+                <button class="hold-btn">
+
+                    Cakep
+
+                </button>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- REPLY FINAL -->
+
+
+            <div class="reply-message" id="reply3">
+
+
+                <div class="reply-bubble">
+
+                    Dari 2023 udah berharap,<br>
+                    2026 masih sama aja.<br><br>
+
+                    jadi sayang kapan montok? ◉⁠‿⁠◉
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- FINISH -->
+
+
+            <div class="chat-finish" id="chatFinish">
+
+                <h2>
+                    SELESAI
+                </h2>
+
+                <p>
+                    🤍
+                </p>
+
+            </div>
+
+
 
         </div>
 
-        <!-- Setelah selesai -->
-
-        <div id="chatFinish" class="chat-finish">
-
-            <h2>
-                UNTUK ALFI
-            </h2>
-
-            <p>
-
-                Sudah Lihat?
-
-                <br><br>
-
-                Pesannya sebenarnya sudah ada dari awal.
-
-                <br>
-
-                Cuma ada di balik sedikit noise.
-
-            </p>
-
-        </div>
 
     </div>
+
 
 </div>
 

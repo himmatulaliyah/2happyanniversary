@@ -118,13 +118,20 @@ const planets = [
     document.querySelector(".radio")
 ];
 
-let radiusX = 350;
-let radiusY = 180;
+let radiusX = 270;
+let radiusY = 150;
+
+// Geser posisi seluruh orbit
+let offsetX = 0;   // + ke kanan, - ke kiri
+let offsetY = 0;   // + ke bawah, - ke atas
 
 /* MOBILE */
 if (window.innerWidth <= 768) {
-    radiusX = 200; // lebih dekat ke foto
-    radiusY = 100; // lebih dekat ke foto
+    radiusX = 200;
+    radiusY = 130;
+
+    offsetX = 0;    // contoh: 15 untuk geser kanan
+    offsetY = -10;  // contoh: -10 agar sedikit ke atas
 }
 
 let angle = 0;
@@ -140,8 +147,8 @@ function animate() {
 
         const a = angle + index * ((Math.PI * 2) / planets.length);
 
-        const x = Math.cos(a) * radiusX;
-        const y = Math.sin(a) * radiusY;
+        const x = Math.cos(a) * radiusX + offsetX;
+        const y = Math.sin(a) * radiusY + offsetY;
 
         planet.style.left = `calc(50% + ${x}px)`;
         planet.style.top = `calc(50% + ${y}px)`;
@@ -269,6 +276,8 @@ messagePopup.addEventListener("click",(e)=>{
 });
 
 
+/* ================= RADIO ================= */
+
 const radioBtn = document.getElementById("radioBtn");
 const radioPopup = document.getElementById("radioPopup");
 const closeRadio = document.getElementById("closeRadio");
@@ -279,9 +288,13 @@ const radioStatus = document.getElementById("radioStatus");
 const radioResult = document.getElementById("radioResult");
 const radioIndicator = document.getElementById("radioIndicator");
 
+const loveDay = document.querySelector(".love-day");
+
 let scanning = false;
 let randomInterval;
 let indicatorInterval;
+
+const SCAN_DURATION = 5000; // durasi scan (5 detik)
 
 /* ================= OPEN POPUP ================= */
 
@@ -303,9 +316,9 @@ closeRadio.addEventListener("click", () => {
 
 });
 
-radioPopup.addEventListener("click",(e)=>{
+radioPopup.addEventListener("click", (e) => {
 
-    if(e.target===radioPopup){
+    if (e.target === radioPopup) {
 
         radioPopup.classList.remove("active");
 
@@ -317,91 +330,104 @@ radioPopup.addEventListener("click",(e)=>{
 
 /* ================= RESET ================= */
 
-function resetRadio(){
+function resetRadio() {
 
     stopScanning();
 
-    radioNumber.textContent="--.--";
+    radioNumber.textContent = "--.--";
 
-    radioStatus.textContent="FREKUENSINYA MASIH RAHASIA";
+    radioStatus.textContent = "FREKUENSINYA MASIH RAHASIA";
 
-    radioResult.textContent="";
+    radioResult.textContent = "";
 
-    scanRadio.disabled=false;
+    scanRadio.disabled = false;
 
-    scanRadio.textContent="Cari Frekuensi Kita";
+    scanRadio.textContent = "Cari Frekuensi Kita";
 
-    radioIndicator.style.left="50%";
+    radioIndicator.style.left = "50%";
+
+    if (loveDay) {
+        loveDay.classList.remove("active");
+    }
 
 }
 
 /* ================= SCAN ================= */
 
-scanRadio.addEventListener("click",()=>{
+scanRadio.addEventListener("click", () => {
 
-    if(scanning) return;
+    if (scanning) return;
 
-    scanning=true;
+    scanning = true;
 
-    scanRadio.disabled=true;
+    scanRadio.disabled = true;
 
-    scanRadio.textContent="Mencari...";
+    scanRadio.textContent = "Mencari...";
 
-    radioStatus.textContent="MENCARI FREKUENSI...";
+    radioStatus.textContent = "MENCARI FREKUENSI...";
+
+    if (loveDay) {
+        loveDay.classList.remove("active");
+    }
 
     /* angka random */
 
-    randomInterval=setInterval(()=>{
+    randomInterval = setInterval(() => {
 
-        const random=(Math.random()*99).toFixed(2);
+        const random = (Math.random() * 99).toFixed(2);
 
-        radioNumber.textContent=random;
+        radioNumber.textContent = random;
 
-    },70);
+    }, 70);
 
     /* slider bergerak */
 
-    let direction=1;
-    let position=50;
+    let direction = 1;
+    let position = 50;
 
-    indicatorInterval=setInterval(()=>{
+    indicatorInterval = setInterval(() => {
 
-        position+=direction*3;
+        position += direction * 3;
 
-        if(position>=95) direction=-1;
+        if (position >= 95) direction = -1;
+        if (position <= 5) direction = 1;
 
-        if(position<=5) direction=1;
+        radioIndicator.style.left = position + "%";
 
-        radioIndicator.style.left=position+"%";
-
-    },40);
+    }, 40);
 
     /* selesai */
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         stopScanning();
 
-        radioNumber.textContent="20.07";
+        radioNumber.textContent = "20.07";
 
-        radioStatus.textContent="TANGGAL JADIAN KITA";
+        radioStatus.textContent = "TANGGAL JADIAN KITA";
 
-        radioResult.innerHTML=
-        "Ketemu! 20 Juli Kita Memulai";
+        radioResult.innerHTML = "Ketemu! 20 Juli Kita Memulai";
 
-        radioIndicator.style.left="10%";
+        radioIndicator.style.left = "10%";
 
-        scanRadio.textContent="Frekuensi Ditemukan";
+        scanRadio.textContent = "Frekuensi Ditemukan";
 
-    },3000);
+// Nyalakan tanggal 20 setelah frekuensi ditemukan
+setTimeout(() => {
+
+    loveDay.classList.add("active");
+
+}, 400);
+
+    }, SCAN_DURATION);
 
 });
 
 /* ================= STOP ================= */
 
-function stopScanning(){
+function stopScanning() {
 
-    scanning=false;
+    scanning = false;
 
     clearInterval(randomInterval);
 
@@ -415,24 +441,14 @@ const chatBtn = document.getElementById("chatBtn");
 const chatPopup = document.getElementById("chatPopup");
 const closeChat = document.getElementById("closeChat");
 
-const holdBtn = document.getElementById("holdBtn");
+const chatBody = document.querySelector(".chat-body");
 
-const noiseText = document.getElementById("noiseText");
-const realText = document.getElementById("realText");
+let step = 0;
 
-const chatMessage = document.querySelector(".chat-message");
-const chatFinish = document.getElementById("chatFinish");
-const chatInfo = document.getElementById("chatInfo");
 
-let timer;
-let holding = false;
-let holdTime = 0;
+/* ================= OPEN POPUP ================= */
 
-const finalMessage = "aku masih memilih kamu";
-
-/* ================= OPEN ================= */
-
-chatBtn.addEventListener("click", () => {
+chatBtn.addEventListener("click",()=>{
 
     chatPopup.classList.add("active");
 
@@ -440,9 +456,11 @@ chatBtn.addEventListener("click", () => {
 
 });
 
+
+
 /* ================= CLOSE ================= */
 
-closeChat.addEventListener("click", () => {
+closeChat.addEventListener("click",()=>{
 
     chatPopup.classList.remove("active");
 
@@ -450,9 +468,11 @@ closeChat.addEventListener("click", () => {
 
 });
 
-chatPopup.addEventListener("click", (e) => {
 
-    if (e.target === chatPopup) {
+
+chatPopup.addEventListener("click",(e)=>{
+
+    if(e.target === chatPopup){
 
         chatPopup.classList.remove("active");
 
@@ -462,166 +482,266 @@ chatPopup.addEventListener("click", (e) => {
 
 });
 
-/* ================= HOLD ================= */
 
-holdBtn.addEventListener("mousedown", startHold);
-holdBtn.addEventListener("touchstart", startHold);
-
-document.addEventListener("mouseup", stopHold);
-document.addEventListener("mouseleave", stopHold);
-document.addEventListener("touchend", stopHold);
-
-function startHold() {
-
-    if (holding) return;
-
-    holding = true;
-
-    holdBtn.style.background = "#d8b58c";
-    holdBtn.style.color = "#2f2020";
-
-    timer = setInterval(() => {
-
-        holdTime += 50;
-
-        randomNoise();
-
-        if (holdTime >= 3000) {
-
-            clearInterval(timer);
-
-            revealMessage();
-
-        }
-
-    }, 50);
-
-}
-
-function stopHold() {
-
-    if (holdTime >= 3000) return;
-
-    holding = false;
-
-    clearInterval(timer);
-
-    holdTime = 0;
-
-    holdBtn.style.background = "rgba(255,255,255,.08)";
-    holdBtn.style.color = "#fff";
-
-}
-
-/* ================= RANDOM TEXT ================= */
-
-function randomNoise() {
-
-    const chars = "abcdefghijklmnopqrstuvwxyz";
-
-    let html = "";
-
-    const progress = holdTime / 3000;
-
-    for (let i = 0; i < finalMessage.length; i++) {
-
-        if (finalMessage[i] === " ") {
-
-            html += " ";
-
-            continue;
-
-        }
-
-        if (Math.random() < progress) {
-
-            html += finalMessage[i];
-
-        } else {
-
-            html += chars[Math.floor(Math.random() * chars.length)];
-
-        }
-
-    }
-
-    noiseText.innerHTML = html;
-
-}
-
-/* ================= REVEAL ================= */
-
-function revealMessage() {
-
-    holdBtn.style.background = "#d8b58c";
-    holdBtn.style.color = "#2f2020";
-
-    noiseText.innerHTML = finalMessage;
-
-    setTimeout(() => {
-
-        chatMessage.classList.add("show");
-
-        typeWriter();
-
-    }, 500);
-
-}
-
-function typeWriter() {
-
-    realText.innerHTML = "";
-
-    let i = 0;
-
-    const typing = setInterval(() => {
-
-        realText.innerHTML += finalMessage.charAt(i);
-
-        i++;
-
-        if (i >= finalMessage.length) {
-
-            clearInterval(typing);
-
-            chatFinish.style.display = "block";
-
-            chatInfo.style.display = "none";
-
-            holdBtn.style.display = "none";
-
-        }
-
-    }, 65);
-
-}
 
 /* ================= RESET ================= */
 
-function resetChat() {
+function resetChat(){
 
-    clearInterval(timer);
+    step = 0;
 
-    holding = false;
 
-    holdTime = 0;
+    chatBody.innerHTML = `
 
-    holdBtn.style.background = "rgba(255,255,255,.08)";
-    holdBtn.style.color = "#fff";
+    <div class="chat-message">
 
-    chatMessage.classList.remove("show");
+        <div class="chat-bubble">
 
-    realText.innerHTML = "";
+            <div class="chat-name">
+                Dari Aku
+            </div>
 
-    noiseText.innerHTML = `takugmasihftcodscpjlv<br>
-sphwllmemilihkkfabqbu<br>
-cazvittqkamuzharijkey<br>
-muvnvmaonywqgynwqinif`;
+            <div class="chat-text">
+                Naik kapal menuju pulau, lihat camar terbang melaju.
+            </div>
 
-    chatFinish.style.display = "none";
+            <span class="chat-time">
+                16.54 ✓✓
+            </span>
 
-    chatInfo.style.display = "block";
+        </div>
 
-    holdBtn.style.display = "inline-block";
+    </div>
+
+
+    <div class="hold-area">
+
+        <button class="hold-btn">
+            Cakep
+        </button>
+
+    </div>
+
+    `;
+
+
+    activateButton();
+
+}
+
+
+
+/* ================= BUTTON ================= */
+
+function activateButton(){
+
+    const btn = document.querySelector(".hold-btn");
+
+
+    if(!btn) return;
+
+
+    btn.onclick = ()=>{
+
+
+        btn.parentElement.remove();
+
+
+        nextChat();
+
+
+    };
+
+
+}
+
+
+
+/* ================= CHAT FLOW ================= */
+
+function nextChat(){
+
+
+    step++;
+
+
+
+    // klik Cakep pertama
+
+    if(step === 1){
+
+
+        addRight(`
+            Cakep
+        `);
+
+
+
+        setTimeout(()=>{
+
+
+            addLeft(`
+                Beda agama, beda pulau, menyala bosku.
+            `);
+
+
+
+            addButton("Lanjut Pantun");
+
+
+
+        },700);
+
+
+
+    }
+
+
+
+
+    // klik lanjut pantun
+
+    else if(step === 2){
+
+
+        addLeft(`
+            Pergi ke pasar beli pepaya, sekalian beli buah naga.
+        `);
+
+
+
+        addButton("Cakep");
+
+
+
+    }
+
+
+
+
+    // klik cakep terakhir
+
+    else if(step === 3){
+
+
+        addRight(`
+            Cakep
+        `);
+
+
+
+        setTimeout(()=>{
+
+
+            addLeft(`
+                Dari 2023 udah berharap, 2026 masih sama aja. Jadi sayang kapan montok? 
+            `);
+
+
+
+        },700);
+
+
+
+    }
+
+
+
+}
+
+
+
+/* ================= ADD LEFT ================= */
+
+function addLeft(text){
+
+
+    chatBody.insertAdjacentHTML(
+
+    "beforeend",
+
+`
+<div class="chat-message">
+
+    <div class="chat-bubble">
+
+        <div class="chat-name">
+            Dari Aku
+        </div>
+
+        <div class="chat-text">
+            ${text}
+        </div>
+
+        <span class="chat-time">
+            16.57 ✓✓
+        </span>
+
+    </div>
+
+</div>
+`
+
+    );
+
+
+}
+
+
+
+/* ================= ADD RIGHT ================= */
+
+function addRight(text){
+
+
+    chatBody.insertAdjacentHTML(
+
+    "beforeend",
+
+`
+<div class="reply-message show">
+
+    <div class="reply-bubble">
+
+        ${text}
+
+    </div>
+
+</div>
+`
+
+    );
+
+
+}
+
+
+
+/* ================= ADD BUTTON ================= */
+
+function addButton(text){
+
+
+    chatBody.insertAdjacentHTML(
+
+    "beforeend",
+
+`
+<div class="hold-area">
+
+    <button class="hold-btn">
+
+        ${text}
+
+    </button>
+
+</div>
+`
+
+    );
+
+
+    activateButton();
+
 
 }
