@@ -362,7 +362,7 @@ let timer;
 let holding = false;
 let holdTime = 0;
 
-const finalMessage = "aku masih memilih kamu hari ini";
+const finalMessage = "aku masih memilih kamu";
 
 /* ================= OPEN ================= */
 
