@@ -1,5 +1,16 @@
-setTimeout(() => {
+const openBtn = document.getElementById("openBtn");
 
-    window.location.href = "puzzle.html";
 
-}, 7000);
+setTimeout(()=>{
+
+    openBtn.classList.add("show");
+
+},5000);
+
+
+
+openBtn.onclick = ()=>{
+
+    window.location.href="puzzle.html";
+
+};
