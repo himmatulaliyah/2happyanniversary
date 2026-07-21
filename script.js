@@ -2,4 +2,4 @@ setTimeout(() => {
 
     window.location.href = "puzzle.html";
 
-}, 10000);
+}, 7000);
