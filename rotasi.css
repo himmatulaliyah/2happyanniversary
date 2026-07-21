@@ -1231,6 +1231,67 @@ opacity:0;
 
 @media(max-width:768px){
 
+     .title{
+
+        top:70px;
+
+    }
+
+
+    .title small{
+
+        padding-top:0;
+
+        font-size:9px;
+
+        letter-spacing:3px;
+
+    }
+
+     .heart{
+
+        width:200px;
+
+        filter:
+        drop-shadow(0 0 35px rgba(255,210,180,.6));
+
+    }
+
+
+    .title h1{
+
+        font-size:28px;
+
+    }
+
+ .orbit{
+
+        width:300px;
+        height:250px;
+
+        top:50%;
+
+    }
+
+      .planet{
+
+        padding:10px 25px;
+
+        font-size:16px;
+
+        border-radius:14px;
+
+    }
+
+
+
+    .orbit::before{
+
+        border-width:1px;
+
+    }
+
+
     .copyright{
 
         bottom:12px;
