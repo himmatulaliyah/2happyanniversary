@@ -1,3 +1,115 @@
+/* ================= MUSIC ================= */
+
+const musicBtn = document.getElementById("musicBtn");
+const musicPopup = document.getElementById("musicPopup");
+const closeMusic = document.getElementById("closeMusic");
+
+const audio = document.getElementById("song");       // song.mp3
+const bgMusic = document.getElementById("bgMusic");  // song2.mp3
+const playBtn = document.getElementById("playBtn");
+
+/* ================= AUTOPLAY BACKGROUND ================= */
+
+window.addEventListener("load", () => {
+
+    bgMusic.volume = 0.35;
+
+    const playPromise = bgMusic.play();
+
+    if (playPromise !== undefined) {
+
+        playPromise.catch(() => {
+
+            document.addEventListener("click", () => {
+                bgMusic.play();
+            }, { once: true });
+
+        });
+
+    }
+
+});
+
+/* ================= OPEN POPUP ================= */
+
+musicBtn.onclick = () => {
+
+    musicPopup.classList.add("active");
+
+};
+
+/* ================= CLOSE POPUP ================= */
+
+closeMusic.onclick = () => {
+
+    musicPopup.classList.remove("active");
+
+    audio.pause();
+    audio.currentTime = 0;
+
+    bgMusic.play();
+
+    playBtn.innerHTML = "▶ Play Music";
+
+};
+
+/* ================= CLICK OUTSIDE ================= */
+
+musicPopup.onclick = (e) => {
+
+    if (e.target === musicPopup) {
+
+        musicPopup.classList.remove("active");
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        bgMusic.play();
+
+        playBtn.innerHTML = "▶ Play Music";
+
+    }
+
+};
+
+/* ================= PLAY / PAUSE ================= */
+
+playBtn.onclick = () => {
+
+    if (audio.paused) {
+
+        // Matikan background
+        bgMusic.pause();
+
+        // Putar song.mp3
+        audio.play();
+
+        playBtn.innerHTML = "⏸ Pause Music";
+
+    } else {
+
+        // Pause song.mp3
+        audio.pause();
+
+        // Lanjutkan background
+        bgMusic.play();
+
+        playBtn.innerHTML = "▶ Play Music";
+
+    }
+
+};
+
+/* ================= JIKA SONG SELESAI ================= */
+
+audio.addEventListener("ended", () => {
+
+    bgMusic.play();
+
+    playBtn.innerHTML = "▶ Play Music";
+
+});
+
 const planets = [
     document.querySelector(".bouquet"),
     document.querySelector(".message"),
@@ -6,8 +118,14 @@ const planets = [
     document.querySelector(".radio")
 ];
 
-const radiusX = 350;
-const radiusY = 180;
+let radiusX = 350;
+let radiusY = 180;
+
+/* MOBILE */
+if (window.innerWidth <= 768) {
+    radiusX = 200; // lebih dekat ke foto
+    radiusY = 100; // lebih dekat ke foto
+}
 
 let angle = 0;
 let isPaused = false;
@@ -29,29 +147,23 @@ function animate() {
         planet.style.top = `calc(50% + ${y}px)`;
 
         if (y < 0) {
-
             planet.style.zIndex = 2;
             planet.style.filter = "blur(3px)";
             planet.style.opacity = ".45";
             planet.style.transform = "translate(-50%,-50%) scale(.8)";
-
         } else {
-
             planet.style.zIndex = 20;
             planet.style.filter = "blur(0)";
             planet.style.opacity = "1";
             planet.style.transform = "translate(-50%,-50%) scale(1)";
-
         }
 
     });
 
     requestAnimationFrame(animate);
-
 }
 
 animate();
-
 
 const bouquetBtn = document.querySelector(".bouquet");
 
@@ -156,52 +268,6 @@ messagePopup.addEventListener("click",(e)=>{
 
 });
 
-
-// ================= MUSIC =================
-
-const musicBtn = document.getElementById("musicBtn");
-const musicPopup = document.getElementById("musicPopup");
-const closeMusic = document.getElementById("closeMusic");
-
-const audio = document.getElementById("song");
-const playBtn = document.getElementById("playBtn");
-
-
-musicBtn.onclick = () => {
-    musicPopup.classList.add("active");
-};
-
-
-closeMusic.onclick = () => {
-    musicPopup.classList.remove("active");
-};
-
-
-musicPopup.onclick = (e) => {
-    if(e.target === musicPopup){
-        musicPopup.classList.remove("active");
-    }
-};
-
-
-playBtn.onclick = () => {
-
-    if(audio.paused){
-
-        audio.play();
-
-        playBtn.innerHTML = "⏸ Pause Music";
-
-    }else{
-
-        audio.pause();
-
-        playBtn.innerHTML = "▶ Play Music";
-
-    }
-
-};
-/* ================= RADIO ================= */
 
 const radioBtn = document.getElementById("radioBtn");
 const radioPopup = document.getElementById("radioPopup");
